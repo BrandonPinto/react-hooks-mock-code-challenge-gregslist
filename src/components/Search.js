@@ -1,9 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 
-function Search() {
+function Search({setRender}) {
+
+  const [form, setForm] = useState({
+    description: ''
+  })
+
   function handleSubmit(e) {
     e.preventDefault();
+    setForm({
+      ...form,
+      [e.target.description]:e.target.value
+      
+    })
     console.log("submitted");
+    console.log(e.target.description)
   }
 
   return (
